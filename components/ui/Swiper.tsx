@@ -4,8 +4,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/effect-fade";
 
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import { Pagination, Navigation, Autoplay, EffectFade } from "swiper/modules";
 import Image from "next/image";
 
 const SwiperComponent = () => {
@@ -14,20 +15,20 @@ const SwiperComponent = () => {
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
-        navigation={true}
-        pagination={{ clickable: true }}
+        navigation={false}
+        effect="fade"
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
         }}
         loop={true}
-        modules={[Autoplay,Pagination, Navigation]}
+        modules={[Autoplay, Pagination, Navigation, EffectFade]}
         className="w-full h-full"
       >
-        <SwiperSlide className="relative w-full h-full" hidden>
+        <SwiperSlide className="relative w-full h-full">
           <Image
             src="/img-1.jpg"
-            alt="car"
+            alt="img"
             fill
             className="object-cover"
             priority={true}
@@ -36,7 +37,7 @@ const SwiperComponent = () => {
         <SwiperSlide className="relative w-full h-full">
           <Image
             src="/img-2.jpg"
-            alt="car"
+            alt="img"
             fill
             className="object-cover"
             priority={true}
@@ -45,7 +46,7 @@ const SwiperComponent = () => {
         <SwiperSlide className="relative w-full h-full">
           <Image
             src="/img-3.jpg"
-            alt="car"
+            alt="img"
             fill
             className="object-cover"
             priority={true}
