@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -25,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body
         className={cn(
           "bg-background antialiased min-h-screen text-black",
@@ -33,7 +34,7 @@ export default function RootLayout({
           geistMono.variable
         )}
       >
-        {children}
+        <main className="pt-16">{children}</main>
       </body>
     </html>
   );
