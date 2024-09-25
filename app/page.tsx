@@ -1,3 +1,4 @@
+import Contents from "@/components/Contents";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import { homeConfig } from "@/config/home";
@@ -7,8 +8,9 @@ export default function Home() {
   return (
     <>
       <Header items={homeConfig.mainNav} />
-      <main className="w-full  min-h-screen flex justify-center items-center">
-        <Hero />
+      <Hero />
+      <main >
+        <Contents />
       </main>
     </>
   );
