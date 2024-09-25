@@ -1,55 +1,55 @@
-import Image from "next/image";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import styles from "./index.module.css";
+"use client";
 
-export default function BasicSlider() {
-    const images = [
-      ""
-    ];
-  
-    const slideSettings = {
-      0: {
-        slidesPerView: 1.4,
-        spaceBetween: 10,
-      },
-      1024: {
-        slidesPerView: 2,
-        spaceBetween: 10,
-      },
-    };
-  
-    return (
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import { Pagination, Navigation } from "swiper/modules";
+import Image from "next/image";
+
+const SwiperComponent = () => {
+  return (
+    <div className="w-screen h-screen relative">
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        breakpoints={slideSettings}
-        slidesPerView={"auto"}
-        centeredSlides={true}
+        spaceBetween={0}
+        slidesPerView={1}
+        navigation={true}
+        pagination={{ clickable: true }}
         loop={true}
-        speed={1000}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        navigation
-        pagination={{
-          clickable: true,
-        }}
-        className={styles.slideWrapper}
+        modules={[Pagination, Navigation]}
+        className="w-full h-full"  // Swiper自体をフルスクリーン
       >
-        {images.map((src: string, index: number) => (
-          <SwiperSlide key={index}>
-            <Image
-              src={src}
-              width={1920}
-              height={1038}
-              alt="Slider Image"
-              sizes="(min-width: 1024px) 100vw, 60vw"
-              className={styles.slideImage}
-            />
-          </SwiperSlide>
-        ))}
+        <SwiperSlide className="relative w-full h-full" hidden>
+          <Image
+            src="/img-1.jpg"
+            alt="car"
+            fill  // レスポンシブなレイアウト
+            className="object-cover"  // 画像をコンテナに合わせてカバー
+            priority={true}
+          />
+        </SwiperSlide>
+        <SwiperSlide className="relative w-full h-full">
+          <Image
+            src="/img-2.jpg"
+            alt="car"
+            fill
+            className="object-cover"
+            priority={true}
+          />
+        </SwiperSlide>
+        <SwiperSlide className="relative w-full h-full">
+          <Image
+            src="/img-3.jpg"
+            alt="car"
+            fill
+            className="object-cover"
+            priority={true}
+          />
+        </SwiperSlide>
       </Swiper>
-    );
-  }
-  
+    </div>
+  );
+};
+
+export default SwiperComponent;
