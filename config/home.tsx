@@ -13,7 +13,7 @@ export const homeConfig: HomeConfig = {
             href: "#about",
         },
         {
-            title: "recruit",
+            title: "Recruit",
             href: "./recruit"
         }
 
