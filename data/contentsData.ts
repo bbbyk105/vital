@@ -19,7 +19,7 @@ export interface ContentItem {
       description: "イベントスペースとしての利用",
     },
     {
-      src: "/convesation.png",
+      src: "/conversation.png",
       alt: "会議",
       description: "会議やミーティングの場",
     },
