@@ -18,14 +18,13 @@ const Contents = () => {
         {contentItems.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col items-center bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105"
-          >
+            className="flex flex-col items-center bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105">
             <Image
               src={item.src}
               alt={item.alt}
               height={200}
               width={300}
-              className="object-cover w-full"
+              className="object-cover"
             />
             <div className="p-4">
               <p className="text-gray-700 text-center">{item.description}</p>
