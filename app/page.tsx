@@ -1,7 +1,9 @@
+import Cards from "@/components/Cards";
 import Contents from "@/components/Contents";
+import Fee from "@/components/Fee";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import { homeConfig } from "@/config/home";
+import { homeConfig } from "@/data/homeData";
 import Image from "next/image";
 
 export default function Home() {
@@ -11,6 +13,8 @@ export default function Home() {
       <Hero />
       <main >
         <Contents />
+        <Cards />
+        <Fee />
       </main>
     </>
   );
