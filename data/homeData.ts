@@ -4,20 +4,24 @@ export const homeConfig: HomeConfig = {
     mainNav: [
         
         {
-            title: "Home",
+            title: "ホーム",
             href: "/"
         },
 
         {
-            title: "Contents",
+            title: "コンテンツ",
             href: "#contents",
         },
         {
-            title: "Fee",
+            title: "施設紹介",
+            href: "#facility"
+        },
+        {
+            title: "料金",
             href: "#fee"
         },
         {
-            title: "Recruit",
+            title: "お問い合わせ",
             href: "/recruit"
         }
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Fee = () => {
+const Fee: React.FC = () => {
   return (
     <div className="container max-w-[65%] mx-auto py-8 md:py-12 lg:py-24">
       <section id="fee">
