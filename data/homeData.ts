@@ -9,8 +9,12 @@ export const homeConfig: HomeConfig = {
         },
 
         {
-            title: "About",
-            href: "#about",
+            title: "Contents",
+            href: "#contents",
+        },
+        {
+            title: "Fee",
+            href: "#fee"
         },
         {
             title: "Recruit",

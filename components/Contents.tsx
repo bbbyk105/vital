@@ -5,7 +5,7 @@ import contentItems from "@/data/contentsData";
 const Contents = () => {
   return (
     <section
-      id="about"
+      id="contents"
       className="container bg-slate-50 max-w-[90%] mx-auto py-8 md:py-12 lg:py-24"
     >
       <div className="text-center">

@@ -1,4 +1,5 @@
 import Contents from "@/components/Contents";
+import Fee from "@/components/Fee";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import { homeConfig } from "@/data/homeData";
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <main >
         <Contents />
+        <Fee />
       </main>
     </>
   );
