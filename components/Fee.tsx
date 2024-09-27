@@ -62,7 +62,7 @@ const Fee = () => {
         </h3>
         <div className="flex flex-wrap -mx-4">
           {/* 通常会員 利用料金 */}
-          <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+          <div className="w-full md:w-1/3 lg:w-1/3 px-4 mb-8">
             <div className="bg-white shadow-lg rounded-lg overflow-hidden">
               <div className="bg-blue-500 text-white text-center py-4">
                 <h4 className="text-xl font-semibold">通常会員</h4>
@@ -82,7 +82,7 @@ const Fee = () => {
             </div>
           </div>
           {/* 法人会員 利用料金 */}
-          <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+          <div className="w-full md:w-1/3 lg:w-1/3 px-4 mb-8">
             <div className="bg-white shadow-lg rounded-lg overflow-hidden">
               <div className="bg-green-500 text-white text-center py-4">
                 <h4 className="text-xl font-semibold">法人会員</h4>
@@ -102,7 +102,7 @@ const Fee = () => {
             </div>
           </div>
           {/* ビジター 利用料金 */}
-          <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+          <div className="w-full md:w-1/3 lg:w-1/3 px-4 mb-8">
             <div className="bg-white shadow-lg rounded-lg overflow-hidden">
               <div className="bg-yellow-500 text-white text-center py-4">
                 <h4 className="text-xl font-semibold">ビジター</h4>
