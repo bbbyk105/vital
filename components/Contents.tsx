@@ -6,7 +6,7 @@ const Contents = () => {
   return (
     <section
       id="contents"
-      className="container bg-slate-50 max-w-[90%] mx-auto py-8 md:py-12 lg:py-24"
+      className="container bg-slate-50 max-w-[65%] mx-auto py-8 md:py-12 lg:py-24"
     >
       <div className="text-center">
         <h2 className="font-extrabold text-3xl md:text-6xl mb-4">Contents</h2>

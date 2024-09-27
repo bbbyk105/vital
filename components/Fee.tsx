@@ -2,8 +2,8 @@ import React from "react";
 
 const Fee = () => {
   return (
-    <div className="container max-w-[75%] mx-auto py-8 md:py-12 lg:py-24">
-      <section id="title">
+    <div className="container max-w-[65%] mx-auto py-8 md:py-12 lg:py-24">
+      <section id="fee">
         <div className="text-center mb-12">
           <h2 className="font-extrabold text-3xl md:text-6xl mb-1">Fee</h2>
           <hr className="mx-auto w-24 border-t-2 border-blue-500" />
