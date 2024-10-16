@@ -3,7 +3,7 @@ import { AppleCards } from './ui/AppleCards'
 
 const Cards = () => {
   return (
-    <div>
+    <div id="facility">
         <AppleCards/>
     </div>
   )

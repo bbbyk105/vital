@@ -9,13 +9,14 @@ interface ContentItem {
 }
 
 
+
 const contentsData: ContentItem[] = contentItems;
 
 const Contents: React.FC = () => {
   return (
     <section
       id="contents"
-      className="container bg-slate-50 max-w-[65%] mx-auto my-8 md:my-12 lg:my-24"
+      className="container bg-slate-50 max-w-[65%] mx-auto my-12 md:my-18 lg:my-24"
     >
       <div className="text-center">
         <h2 className="font-extrabold text-3xl md:text-6xl mb-4">Contents</h2>

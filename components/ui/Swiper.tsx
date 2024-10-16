@@ -18,7 +18,7 @@ const SwiperComponent = () => {
         navigation={false}
         effect="fade"
         autoplay={{
-          delay: 2500,
+          delay: 3500,
           disableOnInteraction: false,
         }}
         loop={true}
@@ -27,7 +27,7 @@ const SwiperComponent = () => {
       >
         <SwiperSlide className="relative w-full h-full">
           <Image
-            src="/img-1.jpg"
+            src="/first.jpg"
             alt="img"
             fill
             className="object-cover"
@@ -36,7 +36,7 @@ const SwiperComponent = () => {
         </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
           <Image
-            src="/img-2.jpg"
+            src="/second.jpg"
             alt="img"
             fill
             className="object-cover"
@@ -45,7 +45,7 @@ const SwiperComponent = () => {
         </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
           <Image
-            src="/img-3.jpg"
+            src="/third.jpg"
             alt="img"
             fill
             className="object-cover"
