@@ -8,15 +8,13 @@ interface ContentItem {
   description: string;
 }
 
-
-
 const contentsData: ContentItem[] = contentItems;
 
 const Contents: React.FC = () => {
   return (
     <section
       id="contents"
-      className="container bg-slate-50 max-w-[65%] mx-auto my-12 md:my-18 lg:my-24"
+      className="container bg-slate-50 max-w-[90%] mx-auto my-12 md:my-18 lg:my-24"
     >
       <div className="text-center">
         <h2 className="font-extrabold text-3xl md:text-6xl mb-4">Contents</h2>
@@ -24,7 +22,7 @@ const Contents: React.FC = () => {
           マルシェや仕事、イベントなど、幅広いシーンで老若男女問わず利用できる場です。
         </p>
       </div>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 mx-auto">
+      <div className="grid grid-cols-3 gap-4">
         {contentsData.map((item, index) => (
           <div
             key={index}

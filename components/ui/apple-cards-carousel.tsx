@@ -88,68 +88,70 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
   return (
     <CarouselContext.Provider
-      value={{ onCardClose: handleCardClose, currentIndex }}
+  value={{ onCardClose: handleCardClose, currentIndex }}
+>
+  <div className="relative w-full">
+    <div
+      className="flex w-full overflow-x-scroll py-10 md:py-20 scroll-smooth [scrollbar-width:none]"
+      ref={carouselRef}
+      onScroll={checkScrollability}
+      style={{
+        scrollPaddingLeft: "40px", // 最初の要素を確実に表示するために十分な余白を設定
+        scrollPaddingRight: "40px", // 最後の要素も同様に
+      }}
     >
-      <div className="relative w-full">
-        <div
-          className="flex w-full overflow-x-scroll overscroll-x-auto py-10 md:py-20 scroll-smooth [scrollbar-width:none]"
-          ref={carouselRef}
-          onScroll={checkScrollability}
-        >
-          <div
-            className={cn(
-              "absolute right-0  z-[1000] h-auto  w-[5%] overflow-hidden bg-gradient-to-l"
-            )}
-          ></div>
+      <div
+        className="absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l"
+      ></div>
 
-          <div
-            className={cn(
-              "flex flex-row justify-start gap-4 pl-4",
-              "max-w-7xl mx-auto" // remove max-w-4xl if you want the carousel to span the full width of its container
-            )}
+      <div
+        className={cn(
+          "flex flex-row gap-4", // パディングを削除して空白をなくす
+          "items-center mx-auto max-w-7xl"
+        )}
+      >
+        {items.map((item, index) => (
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.5,
+                delay: 0.2 * index,
+                ease: "easeOut",
+              },
+            }}
+            key={"card" + index}
+            className="rounded-3xl"
           >
-            {items.map((item, index) => (
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    duration: 0.5,
-                    delay: 0.2 * index,
-                    ease: "easeOut",
-                    once: true,
-                  },
-                }}
-                key={"card" + index}
-                className="last:pr-[5%] md:last:pr-[33%]  rounded-3xl"
-              >
-                {item}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        <div className="flex justify-end gap-2 mr-10">
-          <button
-            className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
-            onClick={scrollLeft}
-            disabled={!canScrollLeft}
-          >
-            <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
-          </button>
-          <button
-            className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
-            onClick={scrollRight}
-            disabled={!canScrollRight}
-          >
-            <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
-          </button>
-        </div>
+            {item}
+          </motion.div>
+        ))}
       </div>
-    </CarouselContext.Provider>
+    </div>
+
+    <div className="flex justify-end gap-2 mr-10">
+      <button
+        className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
+        onClick={scrollLeft}
+        disabled={!canScrollLeft}
+      >
+        <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
+      </button>
+      <button
+        className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
+        onClick={scrollRight}
+        disabled={!canScrollRight}
+      >
+        <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
+      </button>
+    </div>
+  </div>
+</CarouselContext.Provider>
   );
 };
 
