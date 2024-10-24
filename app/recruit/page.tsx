@@ -10,8 +10,8 @@ export default function recruit() {
           <br />
           3営業日以内にご返信させていただきます。
         </p>
-        <div className="text-center mx-auto bg-blue-50">
-            <h1>aaaaa</h1>
+        <div className="text-center mx-auto bg-slate-100">
+            
         </div>
       </div>
     </main>
