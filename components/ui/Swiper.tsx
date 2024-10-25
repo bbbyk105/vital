@@ -9,9 +9,10 @@ import "swiper/css/effect-fade";
 import { Pagination, Navigation, Autoplay, EffectFade } from "swiper/modules";
 import Image from "next/image";
 
+// SwiperComponent.js
 const SwiperComponent = () => {
   return (
-    <div className="w-screen h-screen relative">
+    <div className="w-screen h-screen relative z-[1000]">
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
@@ -56,5 +57,7 @@ const SwiperComponent = () => {
     </div>
   );
 };
+
+
 
 export default SwiperComponent;

@@ -16,7 +16,7 @@ export default function Header({ items }: HeaderProps) {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50 ">
+    <header className="fixed top-0 left-0 w-full bg-white shadow-md z-[200] ">
       <div className="container mx-auto flex items-center justify-between py-3 px-6">
         <div className="logo">
           <Image

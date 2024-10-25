@@ -10,8 +10,8 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <Header items={homeConfig.mainNav} />
       <Hero />
+      <Header items={homeConfig.mainNav} />
       <main>
         <Contents />
         <Cards />
