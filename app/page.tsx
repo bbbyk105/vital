@@ -1,4 +1,5 @@
 import Cards from "@/components/Cards";
+import Company from "@/components/Company";
 import Contents from "@/components/Contents";
 import Fee from "@/components/Fee";
 import Header from "@/components/Header";
@@ -11,10 +12,11 @@ export default function Home() {
     <>
       <Header items={homeConfig.mainNav} />
       <Hero />
-      <main >
+      <main>
         <Contents />
         <Cards />
         <Fee />
+        <Company />
       </main>
     </>
   );
