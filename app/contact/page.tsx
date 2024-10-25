@@ -1,4 +1,4 @@
-export default function recruit() {
+export default function contact() {
   interface FormValues {
     company: string;
     name: string;
@@ -7,6 +7,7 @@ export default function recruit() {
     type: string;
     placeholder: string;
   }
+
 
   return (
     <main>
@@ -23,7 +24,7 @@ export default function recruit() {
           {/* 会社名 */}
           <div className="mb-4 text-left">
             <label htmlFor="company" className="block font-medium mb-2">
-              会社名
+              会社名 ※個人の場合はなし
             </label>
             <input
               id="company"
@@ -79,6 +80,7 @@ export default function recruit() {
           {/* 送信ボタン */}
           <button
             type="submit"
+            onChange={""}
             className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
           >
             送信

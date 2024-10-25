@@ -22,7 +22,7 @@ export const homeConfig: HomeConfig = {
         },
         {
             title: "お問い合わせ",
-            href: "/recruit"
+            href: "/contact"
         }
 
     ]    
