@@ -1,6 +1,16 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import nodemailer from "nodemailer";
 
 export default function sendGmail(req: NextApiRequest, res: NextApiResponse) {
-    return res.status(200).json({ name: "Byakko"});
+    
+    const transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 587,
+        auth: {
+            user: ,
+            pass: 
+        }
+
+    });
 };
 
