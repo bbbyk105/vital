@@ -34,7 +34,7 @@ export default function RootLayout({
           geistMono.variable
         )}
       >
-        <main className="pt-16">{children}</main>
+        <main>{children}</main>
       </body>
     </html>
   );
