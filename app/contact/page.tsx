@@ -12,16 +12,17 @@ export default function contact() {
 
   return (
     <main>
-      <div className="max-w-[65%] mx-auto text-center">
-        <h1 className="font-extrabold text-xl md:text-4xl my-4">
+      <div className="max-w-[90%] md:max-w-[65%] mx-auto text-center">
+        <h1 className="font-extrabold text-3xl md:text-4xl mt-16">
           お問い合わせ
         </h1>
-        <p className="text-muted-foreground mb-8">
+        <p className="text-muted-foreground mt-4 mb-4 text-sm">
           弊社へのお問い合わせはこちらにお願いいたします。
           <br />
           3営業日以内にご返信させていただきます。
         </p>
-        <form onSubmit={(e) => handleSubmit(e)}>
+        {/* onSubmit={(e) => handleSubmit(e)} */}
+        <form >
           <div className="bg-slate-100 p-6 rounded-md">
             {/* 会社名 */}
             <div className="mb-4 text-left">
@@ -80,7 +81,6 @@ export default function contact() {
             {/* 送信ボタン */}
             <button
               type="submit"
-              onChange={""}
               className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
             >
               送信
