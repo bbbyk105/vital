@@ -1,3 +1,5 @@
+"use client"
+
 export default function contact() {
   interface FormValues {
     company: string;
@@ -8,7 +10,10 @@ export default function contact() {
     placeholder: string;
   }
 
-  const handleSubmit = (e) => {};
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("メール送信完了")
+  };
 
   return (
     <main>
@@ -21,8 +26,7 @@ export default function contact() {
           <br />
           3営業日以内にご返信させていただきます。
         </p>
-        {/* onSubmit={(e) => handleSubmit(e)} */}
-        <form >
+        <form onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}>
           <div className="bg-slate-100 p-6 rounded-md">
             {/* 会社名 */}
             <div className="mb-4 text-left">
