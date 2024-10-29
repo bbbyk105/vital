@@ -21,7 +21,7 @@ export default function contact() {
           <br />
           3営業日以内にご返信させていただきます。
         </p>
-        <form onSubmit={(e) => hendleSubmit(e)}>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <div className="bg-slate-100 p-6 rounded-md">
             {/* 会社名 */}
             <div className="mb-4 text-left">
