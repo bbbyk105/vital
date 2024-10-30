@@ -1,7 +1,10 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 
 export default function Contact() {
+  const router = useRouter();
+  
   interface FormValues {
     company: string;
     name: string;
@@ -39,6 +42,7 @@ export default function Contact() {
         if (res.status === 200) {
           setIsSubmitted(true); // 送信完了メッセージを表示
           console.log("メール送信完了");
+          router.push("/success");
         }
       })
       .catch((error) => {
@@ -57,11 +61,6 @@ export default function Contact() {
           <br />
           3営業日以内にご返信させていただきます。
         </p>
-        {isSubmitted && (
-          <div className="text-green-500 font-medium mb-4">
-            送信が完了しました。ありがとうございます！
-          </div>
-        )}
         <form
           onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
         >
