@@ -1,7 +1,7 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
-export default function contact() {
+export default function Contact() {
   interface FormValues {
     company: string;
     name: string;
@@ -15,10 +15,10 @@ export default function contact() {
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
+  const [isSubmitted, setIsSubmitted] = useState(false); // 送信完了メッセージ用の状態
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // console.log(nameRef.current?.value)
 
     let data = {
       company: companyRef.current?.value,
@@ -27,16 +27,23 @@ export default function contact() {
       message: messageRef.current?.value,
     };
 
-    await fetch("api/contact", {
+    await fetch("/api/contact", {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((res)=> {
-      if(res.status === 200) console.log("メール送信完了");
-    });
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          setIsSubmitted(true); // 送信完了メッセージを表示
+          console.log("メール送信完了");
+        }
+      })
+      .catch((error) => {
+        console.error("エラーが発生しました:", error);
+      });
   };
 
   return (
@@ -50,6 +57,11 @@ export default function contact() {
           <br />
           3営業日以内にご返信させていただきます。
         </p>
+        {isSubmitted && (
+          <div className="text-green-500 font-medium mb-4">
+            送信が完了しました。ありがとうございます！
+          </div>
+        )}
         <form
           onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
         >

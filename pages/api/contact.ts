@@ -33,9 +33,13 @@ export default async function sendGmail(req: NextApiRequest, res: NextApiRespons
     `,
   };
 
-    transporter.sendMail(toHostMailData, function (err, info) {
-      if(err) console.log(err);
-      else console.log(info);
-    });
-
+  transporter.sendMail(toHostMailData, function (err, info) {
+    if (err) {
+      console.log(err);
+      return res.status(500).json({ message: "メール送信に失敗しました", error: err.toString() });
+    } else {
+      console.log(info);
+      return res.status(200).json({ message: "メール送信完了" });
+    }
+  });
 }
