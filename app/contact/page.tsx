@@ -1,4 +1,5 @@
-"use client"
+"use client";
+import { useRef } from "react";
 
 export default function contact() {
   interface FormValues {
@@ -10,9 +11,32 @@ export default function contact() {
     placeholder: string;
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const companyRef = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("メール送信完了")
+    // console.log(nameRef.current?.value)
+
+    let data = {
+      company: companyRef.current?.value,
+      name: nameRef.current?.value,
+      email: emailRef.current?.value,
+      message: messageRef.current?.value,
+    };
+
+    await fetch("api/contact", {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((res)=> {
+      if(res.status === 200) console.log("メール送信完了");
+    });
   };
 
   return (
@@ -26,7 +50,9 @@ export default function contact() {
           <br />
           3営業日以内にご返信させていただきます。
         </p>
-        <form onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}>
+        <form
+          onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
+        >
           <div className="bg-slate-100 p-6 rounded-md">
             {/* 会社名 */}
             <div className="mb-4 text-left">
@@ -38,6 +64,7 @@ export default function contact() {
                 type="text"
                 placeholder="会社名を入力してください"
                 required
+                ref={companyRef}
                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -52,6 +79,7 @@ export default function contact() {
                 type="text"
                 placeholder="お名前を入力してください"
                 required
+                ref={nameRef}
                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -63,6 +91,7 @@ export default function contact() {
               <input
                 id="email"
                 type="email"
+                ref={emailRef}
                 required
                 placeholder="メールアドレスを入力してください"
                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -79,6 +108,7 @@ export default function contact() {
                 placeholder="お問い合わせ内容を入力してください"
                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 rows={5}
+                ref={messageRef}
               ></textarea>
             </div>
 
