@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 
 export default function Contact() {
   const router = useRouter();
-  
+
   interface FormValues {
     company: string;
     name: string;
@@ -19,9 +19,11 @@ export default function Contact() {
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const [isSubmitted, setIsSubmitted] = useState(false); // 送信完了メッセージ用の状態
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
 
     let data = {
       company: companyRef.current?.value,
@@ -48,6 +50,7 @@ export default function Contact() {
       .catch((error) => {
         console.error("エラーが発生しました:", error);
       });
+    setIsLoading(false);
   };
 
   return (
@@ -124,12 +127,19 @@ export default function Contact() {
             </div>
 
             {/* 送信ボタン */}
-            <button
-              type="submit"
-              className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
-            >
-              送信
-            </button>
+            {/* 送信ボタンまたはローディング表示 */}
+            {isLoading ? (
+              <div className="loader  font-bold text-center mt-4 mb-4">
+                読み込み中...
+              </div>
+            ) : (
+              <button
+                type="submit"
+                className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
+              >
+                送信
+              </button>
+            )}
           </div>
         </form>
       </div>
