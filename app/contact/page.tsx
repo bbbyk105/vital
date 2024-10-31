@@ -1,9 +1,11 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 export default function Contact() {
   const router = useRouter();
+  const words = `読み込み中...`;
 
   interface FormValues {
     company: string;
@@ -18,7 +20,7 @@ export default function Contact() {
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
-  const [isSubmitted, setIsSubmitted] = useState(false); // 送信完了メッセージ用の状態
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -42,7 +44,7 @@ export default function Contact() {
     })
       .then((res) => {
         if (res.status === 200) {
-          setIsSubmitted(true); // 送信完了メッセージを表示
+          setIsSubmitted(true);
           console.log("メール送信完了");
           router.push("/success");
         }
@@ -68,7 +70,6 @@ export default function Contact() {
           onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
         >
           <div className="bg-slate-100 p-6 rounded-md">
-            {/* 会社名 */}
             <div className="mb-4 text-left">
               <label htmlFor="company" className="block font-medium mb-2">
                 会社名 ※個人の場合はなし
@@ -83,7 +84,6 @@ export default function Contact() {
               />
             </div>
 
-            {/* 名前 */}
             <div className="mb-4 text-left">
               <label htmlFor="name" className="block font-medium mb-2">
                 氏名
@@ -97,7 +97,7 @@ export default function Contact() {
                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-            {/* メールアドレス */}
+
             <div className="mb-4 text-left">
               <label htmlFor="email" className="block font-medium mb-2">
                 メールアドレス
@@ -112,7 +112,6 @@ export default function Contact() {
               />
             </div>
 
-            {/* お問い合わせ内容 */}
             <div className="mb-4 text-left">
               <label htmlFor="message" className="block font-medium mb-2">
                 お問い合わせ内容
@@ -126,11 +125,10 @@ export default function Contact() {
               ></textarea>
             </div>
 
-            {/* 送信ボタン */}
-            {/* 送信ボタンまたはローディング表示 */}
+            {/* ローディングアニメーションまたは送信ボタン */}
             {isLoading ? (
-              <div className="loader  font-bold text-center mt-4 mb-4">
-                読み込み中...
+              <div className="text-center mt-4 mb-4">
+                <TextGenerateEffect duration={1} filter={true} words={words} />
               </div>
             ) : (
               <button
