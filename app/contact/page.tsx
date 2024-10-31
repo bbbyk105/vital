@@ -1,7 +1,12 @@
 "use client";
-import { useRef } from "react";
+import { useRouter } from "next/navigation";
+import { useRef, useState } from "react";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
-export default function contact() {
+export default function Contact() {
+  const router = useRouter();
+  const words = `読み込み中...`;
+
   interface FormValues {
     company: string;
     name: string;
@@ -15,10 +20,12 @@ export default function contact() {
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // console.log(nameRef.current?.value)
+    setIsLoading(true);
 
     let data = {
       company: companyRef.current?.value,
@@ -27,16 +34,25 @@ export default function contact() {
       message: messageRef.current?.value,
     };
 
-    await fetch("api/contact", {
+    await fetch("/api/contact", {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((res)=> {
-      if(res.status === 200) console.log("メール送信完了");
-    });
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          setIsSubmitted(true);
+          console.log("メール送信完了");
+          router.push("/success");
+        }
+      })
+      .catch((error) => {
+        console.error("エラーが発生しました:", error);
+      });
+    setIsLoading(false);
   };
 
   return (
@@ -54,7 +70,6 @@ export default function contact() {
           onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
         >
           <div className="bg-slate-100 p-6 rounded-md">
-            {/* 会社名 */}
             <div className="mb-4 text-left">
               <label htmlFor="company" className="block font-medium mb-2">
                 会社名 ※個人の場合はなし
@@ -69,7 +84,6 @@ export default function contact() {
               />
             </div>
 
-            {/* 名前 */}
             <div className="mb-4 text-left">
               <label htmlFor="name" className="block font-medium mb-2">
                 氏名
@@ -83,7 +97,7 @@ export default function contact() {
                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-            {/* メールアドレス */}
+
             <div className="mb-4 text-left">
               <label htmlFor="email" className="block font-medium mb-2">
                 メールアドレス
@@ -98,7 +112,6 @@ export default function contact() {
               />
             </div>
 
-            {/* お問い合わせ内容 */}
             <div className="mb-4 text-left">
               <label htmlFor="message" className="block font-medium mb-2">
                 お問い合わせ内容
@@ -112,13 +125,19 @@ export default function contact() {
               ></textarea>
             </div>
 
-            {/* 送信ボタン */}
-            <button
-              type="submit"
-              className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
-            >
-              送信
-            </button>
+            {/* ローディングアニメーションまたは送信ボタン */}
+            {isLoading ? (
+              <div className="text-center mt-4 mb-4">
+                <TextGenerateEffect duration={1} filter={true} words={words} />
+              </div>
+            ) : (
+              <button
+                type="submit"
+                className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
+              >
+                送信
+              </button>
+            )}
           </div>
         </form>
       </div>

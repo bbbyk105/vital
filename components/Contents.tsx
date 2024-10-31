@@ -36,7 +36,7 @@ const Contents: React.FC = () => {
               className="object-cover"
             />
             <div className="p-4">
-              <p className="text-gray-700 text-center">{item.description}</p>
+              <p className="text-gray-700 text-center text-xs md:text-[16px]">{item.description}</p>
             </div>
           </div>
         ))}
