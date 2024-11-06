@@ -21,7 +21,7 @@ const Company = () => {
               <p><strong>会社名：</strong>株式会社 近藤薬局</p>
             </div>
             <div className="border-b pb-2">
-              <p><strong>設立：</strong>2020年7月7日</p>
+              <p><strong>設立：</strong>1950年</p>
             </div>
             <div className="border-b pb-2">
               <p><strong>代表取締役：</strong>近藤 弘人</p>

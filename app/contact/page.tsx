@@ -7,27 +7,17 @@ export default function Contact() {
   const router = useRouter();
   const words = `読み込み中...`;
 
-  interface FormValues {
-    company: string;
-    name: string;
-    message: string;
-    raws: number;
-    type: string;
-    placeholder: string;
-  }
-
   const companyRef = useRef<HTMLInputElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
 
-    let data = {
+    const data = {
       company: companyRef.current?.value,
       name: nameRef.current?.value,
       email: emailRef.current?.value,
@@ -44,7 +34,6 @@ export default function Contact() {
     })
       .then((res) => {
         if (res.status === 200) {
-          setIsSubmitted(true);
           console.log("メール送信完了");
           router.push("/success");
         }
@@ -64,11 +53,11 @@ export default function Contact() {
         <p className="text-muted-foreground mt-4 mb-4 text-sm">
           弊社へのお問い合わせはこちらにお願いいたします。
           <br />
+          お申し込みもこちらで承ります。
+          <br />
           3営業日以内にご返信させていただきます。
         </p>
-        <form
-          onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
-        >
+        <form onSubmit={handleSubmit}>
           <div className="bg-slate-100 p-6 rounded-md">
             <div className="mb-4 text-left">
               <label htmlFor="company" className="block font-medium mb-2">
