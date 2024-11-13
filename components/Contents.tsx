@@ -14,7 +14,7 @@ const Contents: React.FC = () => {
   return (
     <section
       id="contents"
-      className="relative py-12 sm:py-16 md:py-24 lg:py-32 overflow-hidden"
+      className="relative py-12 sm:py-16 md:py-24 lg:py-32 overflow-hidden hidden md:block"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white opacity-50" />
 
@@ -23,8 +23,8 @@ const Contents: React.FC = () => {
           {/* ヘッダーセクション */}
           <h2
             className="font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
-                         bg-clip-text text-transparent bg-gradient-to-r from-neutral-950 to-neutral-500
-                         tracking-tight leading-tight"
+              bg-clip-text text-transparent bg-gradient-to-r from-neutral-950 to-neutral-500
+              tracking-tight leading-tight"
           >
             Contents
           </h2>
@@ -46,9 +46,7 @@ const Contents: React.FC = () => {
           {contentsData.map((item, index) => (
             <div
               key={index}
-              className="group relative bg-white rounded-xl sm:rounded-2xl overflow-hidden 
-                         hover:-translate-y-1 transition-all duration-300
-                         shadow-sm hover:shadow-xl"
+              className="group relative bg-white rounded-xl sm:rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl"
             >
               {/* 画像コンテナ */}
               <div className="aspect-[4/3] relative overflow-hidden">
@@ -57,9 +55,7 @@ const Contents: React.FC = () => {
                   alt={item.alt}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  sizes="(max-width: 640px) 100vw, 
-                         (max-width: 1024px) 50vw, 
-                         33vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   loading="lazy"
                   quality={85}
                 />
@@ -76,8 +72,8 @@ const Contents: React.FC = () => {
               <div className="p-4 sm:p-5 md:p-6 lg:p-8">
                 <p
                   className="text-neutral-700 
-                             text-xs sm:text-sm md:text-base lg:text-lg 
-                             font-medium leading-relaxed"
+                  text-xs sm:text-sm md:text-base lg:text-lg 
+                  font-medium leading-relaxed"
                 >
                   {item.description}
                 </p>
