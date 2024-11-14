@@ -22,45 +22,36 @@ const Fee: React.FC = () => {
 
   const features = {
     同時入店人数: {
-      visitor: '1名まで',
-      regular: '3名まで',
-      corporate: '5名まで',
-    },
-    基本料金: {
-      visitor: '550円/日',
-      regular: '550円/日',
-      corporate: '550円/日',
+      visitor: '×',
+      regular: '3名まで同行可能',
+      corporate: '5名まで同行可能',
     },
     入会金: {
       visitor: 'なし',
       regular: '5,500円',
       corporate: '主契約：5,500円\n小契約：2,750円',
     },
-    利用可能時間: {
-      visitor: '2時間まで',
-      regular: '24時間',
-      corporate: '24時間',
+    基本料金: {
+      visitor: '500円/3h 1000円/日',
+      regular: '500円/日',
+      corporate: '500円/日',
     },
-    会議室予約: {
-      visitor: '×',
-      regular: '○',
-      corporate: '○（優先予約可）',
+    月額料金: {
+      visitor: '5500円/月',
+      regular: '5500円/月',
+      corporate: '主契約：11000円/月  小契約：5500円/月 ',
     },
+    
     イベントスペース利用: {
       visitor: '×',
-      regular: '○',
-      corporate: '○（優先予約可）',
+      regular: '通常の半額',
+      corporate: '通常の半額（優先予約可）',
     },
     会員特典: {
       visitor: '×',
       regular: '○',
       corporate: '○',
     },
-    請求書払い: {
-      visitor: '×',
-      regular: '×',
-      corporate: '○',
-    }
   };
 
   return (
@@ -198,7 +189,8 @@ const Fee: React.FC = () => {
           <ul className="list-disc pl-5 space-y-1">
             <li>料金は全て税込表示です</li>
             <li>法人会員の小契約は、主契約に付随する形でのみご契約いただけます</li>
-            <li>会議室・イベントスペースは別途利用料金が発生します</li>
+            <li>イベントスペースは別途利用料金が発生します</li>
+            <li>営業時間は平日9:00-21:00 土日祝9:00-18:00です。</li>
             <li>営業時間外のご利用は事前申請が必要です</li>
           </ul>
         </div>
@@ -206,7 +198,7 @@ const Fee: React.FC = () => {
 
       {/* スクロール時の固定ヘッダー（モバイル用） */}
       {isMobile && (
-        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 flex justify-around items-center">
+        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 flex justify-around items-center z-[10000]">
           <button
             onClick={handleContactRedirect}
             className="bg-gray-800 text-white px-6 py-2 rounded-lg text-sm"

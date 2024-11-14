@@ -5,6 +5,8 @@ import Fee from "@/components/Fee";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import RentalSpacePricing from "@/components/RentalSpacePricing";
+import Service from "@/components/Service";
 import { homeConfig } from "@/data/homeData";
 
 export default function Home() {
@@ -16,6 +18,8 @@ export default function Home() {
         <Contents />
         <Cards />
         <Fee />
+        <RentalSpacePricing />
+        <Service />
         <Company />
       </main>
       <Footer />
