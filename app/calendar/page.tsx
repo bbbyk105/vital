@@ -30,18 +30,16 @@ const CalendarManagement = () => {
         end: new Date(),
     });
 
-    // 曜日の配列
     const weekDays = ['日', '月', '火', '水', '木', '金', '土'];
 
-    // カレンダーのグリッドを生成
     const generateCalendarGrid = () => {
         const today = new Date(state.selectedDate);
         const firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
         const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-
-        let days = [];
-        let day = new Date(firstDay);
-
+    
+        const days = []; // `days`はconstに変更
+        const day = new Date(firstDay); // `day`もconstに変更
+    
         // 前月の日付を追加
         for (let i = 0; i < firstDay.getDay(); i++) {
             const prevDate = new Date(firstDay);
@@ -52,7 +50,7 @@ const CalendarManagement = () => {
                 events: getEventsForDate(prevDate)
             });
         }
-
+    
         // 当月の日付を追加
         while (day <= lastDay) {
             days.push({
@@ -60,9 +58,9 @@ const CalendarManagement = () => {
                 isCurrentMonth: true,
                 events: getEventsForDate(day)
             });
-            day.setDate(day.getDate() + 1);
+            day.setDate(day.getDate() + 1); // 新しい日付を別のインスタンスに設定
         }
-
+    
         // 次月の日付を追加
         const remainingDays = 42 - days.length;
         for (let i = 1; i <= remainingDays; i++) {
@@ -74,9 +72,10 @@ const CalendarManagement = () => {
                 events: getEventsForDate(nextDate)
             });
         }
-
+    
         return days;
     };
+    
 
     const getEventsForDate = (date: Date) => {
         return state.events.filter(event =>
@@ -122,7 +121,6 @@ const CalendarManagement = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            {/* カレンダーヘッダー */}
             <div className="bg-white rounded-t-xl shadow-sm">
                 <div className="flex items-center justify-between p-4 border-b">
                     <button
@@ -142,7 +140,6 @@ const CalendarManagement = () => {
                     </button>
                 </div>
 
-                {/* 曜日ヘッダー */}
                 <div className="grid grid-cols-7 bg-gray-50">
                     {weekDays.map(day => (
                         <div
@@ -154,7 +151,6 @@ const CalendarManagement = () => {
                     ))}
                 </div>
 
-                {/* カレンダーグリッド */}
                 <div className="grid grid-cols-7 gap-px bg-gray-200">
                     {generateCalendarGrid().map((day, index) => (
                         <div
@@ -179,7 +175,6 @@ const CalendarManagement = () => {
                 </div>
             </div>
 
-            {/* イベント追加フォーム */}
             <div className="mt-8 bg-white rounded-xl shadow-sm p-6">
                 <h3 className="text-lg font-semibold mb-4">イベントを追加</h3>
                 <form onSubmit={handleAddEvent} className="space-y-4">
