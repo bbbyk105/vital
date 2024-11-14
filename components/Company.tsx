@@ -29,6 +29,9 @@ const Company = () => {
             <div className="border-b pb-2">
               <p><strong>所在地：</strong>〒417-0051 <br /> 静岡県富士市吉原２丁目 8番21-2号</p>
             </div>
+            <div className="border-b pb-2">
+              <p><strong>営業時間：</strong>平日：9:00-21:00　土日祝： 9:00-18:00</p>
+            </div>
           </div>
         </div>
 
