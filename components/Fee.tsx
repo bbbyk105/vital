@@ -22,25 +22,26 @@ const Fee: React.FC = () => {
 
   const features = {
     同時入店人数: {
-      visitor: '1名まで',
+      visitor: '×',
       regular: '3名まで同行可能',
       corporate: '5名まで同行可能',
-    },
-    基本料金: {
-      visitor: '550円/日',
-      regular: '550円/日',
-      corporate: '550円/日',
-    },
-    月額料金: {
-      visitor: '5500円/月',
-      regular: '5500円/月',
-      corporate: '550円/日',
     },
     入会金: {
       visitor: 'なし',
       regular: '5,500円',
       corporate: '主契約：5,500円\n小契約：2,750円',
     },
+    基本料金: {
+      visitor: '500円/3h 1000円/日',
+      regular: '500円/日',
+      corporate: '500円/日',
+    },
+    月額料金: {
+      visitor: '5500円/月',
+      regular: '5500円/月',
+      corporate: '主契約：11000円/月  小契約：5500円/月 ',
+    },
+    
     イベントスペース利用: {
       visitor: '×',
       regular: '通常の半額',
@@ -51,11 +52,6 @@ const Fee: React.FC = () => {
       regular: '○',
       corporate: '○',
     },
-    請求書払い: {
-      visitor: '×',
-      regular: '×',
-      corporate: '○',
-    }
   };
 
   return (
