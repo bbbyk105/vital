@@ -31,7 +31,7 @@ const Company = () => {
 
   return (
     <section 
-      id="company"
+      id="company-section"
       className="relative py-32 bg-gradient-to-b from-gray-50 to-white overflow-hidden mt-32"
     >
       {/* Decorative Background Elements */}

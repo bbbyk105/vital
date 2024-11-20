@@ -22,7 +22,7 @@ export const homeConfig: HomeConfig = {
         },
         {
             title: "会社概要",
-            href: "#company"
+            href: "#company-section"
         },
         {
             title: "予約状況",
