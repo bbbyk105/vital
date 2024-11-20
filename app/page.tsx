@@ -1,6 +1,7 @@
-import Cards from "@/components/Cards";
+// import Cards from "@/components/Cards";
 import Company from "@/components/Company";
 import Contents from "@/components/Contents";
+import FacilityShowcase from "@/components/FacilityShowcase";
 import Fee from "@/components/Fee";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -16,7 +17,8 @@ export default function Home() {
       <Header items={homeConfig.mainNav} />
       <main>
         <Contents />
-        <Cards />
+        <FacilityShowcase/>
+        {/* <Cards /> */}
         <Fee />
         <RentalSpacePricing />
         <Service />

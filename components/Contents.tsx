@@ -22,15 +22,15 @@ const Contents: React.FC = () => {
         <div className="text-center mb-10 sm:mb-12 md:mb-16 lg:mb-24">
           {/* ヘッダーセクション */}
           <h2
-            className="font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
+            className="font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-6xl 
               bg-clip-text text-transparent bg-gradient-to-r from-neutral-950 to-neutral-500
               tracking-tight leading-tight"
           >
             Contents
           </h2>
           <p
-            className="mt-4 sm:mt-6 text-neutral-600 text-sm sm:text-base md:text-lg lg:text-xl 
-                        max-w-[90%] sm:max-w-[80%] md:max-w-2xl lg:max-w-3xl mx-auto
+            className="mt-4 sm:mt-6 text-muted-foreground 
+                        max-w-[90%] sm:max-w-[80%]  mx-auto
                         leading-relaxed"
           >
             マルシェや仕事、イベントなど、幅広いシーンで老若男女問わず利用できる場です。
