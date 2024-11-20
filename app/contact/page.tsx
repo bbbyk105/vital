@@ -1,11 +1,9 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
-import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 export default function Contact() {
   const router = useRouter();
-  const words = `読み込み中...`;
 
   const companyRef = useRef<HTMLInputElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
@@ -43,6 +41,17 @@ export default function Contact() {
       });
     setIsLoading(false);
   };
+
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 bg-white flex items-center justify-center">
+        <div className="flex flex-col items-center">
+          <div className="w-12 h-12 border-4 border-blue-200 rounded-full animate-spin border-t-blue-500"></div>
+          <p className="mt-4 text-gray-600">送信中...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <main>
@@ -111,22 +120,16 @@ export default function Contact() {
                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 rows={5}
                 ref={messageRef}
+                required
               ></textarea>
             </div>
 
-            {/* ローディングアニメーションまたは送信ボタン */}
-            {isLoading ? (
-              <div className="text-center mt-4 mb-4">
-                <TextGenerateEffect duration={1} filter={true} words={words} />
-              </div>
-            ) : (
-              <button
-                type="submit"
-                className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
-              >
-                送信
-              </button>
-            )}
+            <button
+              type="submit"
+              className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
+            >
+              送信
+            </button>
           </div>
         </form>
       </div>
