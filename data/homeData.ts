@@ -21,6 +21,10 @@ export const homeConfig: HomeConfig = {
             href: "#fee"
         },
         {
+            title: "会社概要",
+            href: "#company"
+        },
+        {
             title: "予約状況",
             href: "/calendar"
         },
