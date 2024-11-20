@@ -24,7 +24,7 @@ const Footer = () => {
             </Link>
             <p className="text-gray-600 text-sm">
               〒417-0051<br />
-              静岡県富士市吉原２丁目 8番21-2号<br />
+              静岡県富士市吉原2丁目 8番21-2号<br />
             </p>
           </div>
 

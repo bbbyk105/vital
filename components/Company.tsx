@@ -25,7 +25,7 @@ const Company = () => {
   const companyInfo = [
     { label: "会社名", value: "株式会社 近藤薬局", icon: "🏢" },
     { label: "代表取締役", value: "近藤 弘人", icon: "👤" },
-    { label: "所在地", value: ["〒417-0051", "静岡県富士市吉原２丁目 8番21-2号"], icon: "📍" },
+    { label: "所在地", value: ["〒417-0051", "静岡県富士市吉原2丁目 8番21-2号"], icon: "📍" },
     { label: "営業時間", value: ["平日：9:00-21:00", "土日祝：9:00-18:00"], icon: "🕒" },
   ];
 
