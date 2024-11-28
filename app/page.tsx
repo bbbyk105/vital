@@ -1,4 +1,6 @@
-// import Cards from "@/components/Cards";
+"use client";
+import { useState, useEffect } from "react";
+import Loader from "@/components/Loader"; // Loaderをインポート
 import Company from "@/components/Company";
 import Contents from "@/components/Contents";
 import FacilityShowcase from "@/components/FacilityShowcase";
@@ -11,20 +13,34 @@ import Service from "@/components/Service";
 import { homeConfig } from "@/data/homeData";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
-      <Hero />
-      <Header items={homeConfig.mainNav} />
-      <main>
-        <Contents />
-        <FacilityShowcase/>
-        {/* <Cards /> */}
-        <Fee />
-        <RentalSpacePricing />
-        <Service />
-        <Company />
-      </main>
-      <Footer />
+      {isLoading && <Loader />}
+      {!isLoading && (
+        <>
+          <Hero />
+          <Header items={homeConfig.mainNav} />
+          <main>
+            <Contents />
+            <FacilityShowcase />
+            <Fee />
+            <RentalSpacePricing />
+            <Service />
+            <Company />
+          </main>
+          <Footer />
+        </>
+      )}
     </>
   );
 }
