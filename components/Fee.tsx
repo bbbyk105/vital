@@ -1,6 +1,6 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 const Fee: React.FC = () => {
   const router = useRouter();
@@ -12,45 +12,45 @@ const Fee: React.FC = () => {
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleContactRedirect = () => {
-    router.push('/contact');
+    router.push("/contact");
   };
 
   const features = {
     同時入店人数: {
-      visitor: '×',
-      regular: '3名まで同行可能',
-      corporate: '5名まで同行可能',
+      visitor: "×",
+      regular: "3名まで同行可能",
+      corporate: "5名まで同行可能",
     },
     入会金: {
-      visitor: 'なし',
-      regular: '5,500円',
-      corporate: '主契約：5,500円\n小契約：2,750円',
+      visitor: "なし",
+      regular: "5,500円",
+      corporate: "主契約：5,500円\n小契約：2,750円",
     },
     基本料金: {
-      visitor: '500円/3h 1000円/日',
-      regular: '500円/日',
-      corporate: '500円/日',
+      visitor: "500円/3h 1000円/日",
+      regular: "500円/日",
+      corporate: "500円/日",
     },
     月額料金: {
-      visitor: '5500円/月',
-      regular: '5500円/月',
-      corporate: '主契約：11000円/月  小契約：5500円/月 ',
+      visitor: "5500円/月",
+      regular: "5500円/月",
+      corporate: "主契約：11000円/月  小契約：5500円/月 ",
     },
-    
+
     イベントスペース利用: {
-      visitor: '×',
-      regular: '通常の半額',
-      corporate: '通常の半額（優先予約可）',
+      visitor: "×",
+      regular: "通常の半額",
+      corporate: "通常の半額（優先予約可）",
     },
     会員特典: {
-      visitor: '×',
-      regular: '○',
-      corporate: '○',
+      visitor: "×",
+      regular: "○",
+      corporate: "○",
     },
   };
 
@@ -188,7 +188,9 @@ const Fee: React.FC = () => {
           <h4 className="font-medium text-gray-800 mb-2">注意事項：</h4>
           <ul className="list-disc pl-5 space-y-1">
             <li>料金は全て税込表示です</li>
-            <li>法人会員の小契約は、主契約に付随する形でのみご契約いただけます</li>
+            <li>
+              法人会員の小契約は、主契約に付随する形でのみご契約いただけます
+            </li>
             <li>イベントスペースは別途利用料金が発生します</li>
             <li>営業時間は平日9:00-21:00 土日祝9:00-18:00です。</li>
             <li>営業時間外のご利用は事前申請が必要です</li>
