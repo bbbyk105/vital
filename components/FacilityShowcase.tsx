@@ -1,7 +1,7 @@
 "use client";
-import { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Image from 'next/image';
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const FacilityShowcase = () => {
   const [activeSection, setActiveSection] = useState(0);
@@ -13,32 +13,40 @@ const FacilityShowcase = () => {
       subtitle: "心と体をリフレッシュする空間",
       description: "グリーンスペースでは",
       imageUrl: "/yoga.jpg",
-      features: ["自然光溢れる空間","ヨガマット完備", "更衣室併設"]
+      features: ["自然光溢れる空間", "ヨガマット完備", "更衣室併設"],
     },
     {
       id: 2,
       title: "ワークスペース",
       subtitle: "創造性を刺激する作業環境",
-      description: "快適な環境で集中して作業を行えるワークスペースです。自然光が差し込む開放感のある空間は、クリエイティビティを刺激し、効率的な仕事環境を提供します。",
+      description:
+        "快適な環境で集中して作業を行えるワークスペースです。自然光が差し込む開放感のある空間は、クリエイティビティを刺激し、効率的な仕事環境を提供します。",
       imageUrl: "/working.jpg",
-      features: ["高速Wi-Fi", "電源完備", "フリードリンク", "個別デスク"]
+      features: ["高速Wi-Fi", "電源完備", "フリードリンク", "個別デスク"],
     },
     {
       id: 3,
       title: "コミュニティスペース",
       subtitle: "人々が繋がる交流の場",
-      description: "ワークショップやセミナーを通じて、さまざまなバックグラウンドを持つ人々との出会いがあり、共に学び合い、成長できる環境を提供します。",
+      description:
+        "ワークショップやセミナーを通じて、さまざまなバックグラウンドを持つ人々との出会いがあり、共に学び合い、成長できる環境を提供します。",
       imageUrl: "/seminar.jpg",
-      features: ["プロジェクター", "音響設備", "可動式椅子", "ケータリング対応"]
+      features: [
+        "プロジェクター",
+        "音響設備",
+        "可動式椅子",
+        "ケータリング対応",
+      ],
     },
     {
       id: 4,
       title: "多目的スペース",
       subtitle: "誰もが利用できる開放的な空間",
-      description: "私たちのスペースは、大人から子供まで、年齢や性別を問わず、どなたでも気軽にご利用いただけます。自然豊かな環境の中で、リラックスしたり、創造的な活動を楽しんだりできます。",
+      description:
+        "私たちのスペースは、大人から子供まで、年齢や性別を問わず、どなたでも気軽にご利用いただけます。自然豊かな環境の中で、リラックスしたり、創造的な活動を楽しんだりできます。",
       imageUrl: "/kids.jpg",
-      features: ["バリアフリー", "託児スペース", "休憩エリア", "防音設備"]
-    }
+      features: ["バリアフリー", "託児スペース", "休憩エリア", "防音設備"],
+    },
   ];
 
   const nextSection = () => {
@@ -46,12 +54,16 @@ const FacilityShowcase = () => {
   };
 
   const prevSection = () => {
-    setActiveSection((prev) => (prev - 1 + facilities.length) % facilities.length);
+    setActiveSection(
+      (prev) => (prev - 1 + facilities.length) % facilities.length
+    );
   };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-16">
-      <h1 className="text-4xl md:text-6xl font-bold text-center mb-2">Facility</h1>
+      <h1 className="text-4xl md:text-6xl font-bold text-center mb-2">
+        Facility
+      </h1>
       <p className="text-center text-gray-600 dark:text-gray-400 mb-12">
         施設についての詳細情報をご紹介します
       </p>
@@ -65,10 +77,11 @@ const FacilityShowcase = () => {
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 1200px"
-            priority={activeSection === 0}
+            priority={true} // 事前ロード
+            loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-          
+
           <div className="absolute bottom-0 left-0 right-0 p-8">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
               {facilities[activeSection].title}
