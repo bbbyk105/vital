@@ -56,7 +56,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 mt-8 border-t border-gray-200">
+        <div className="pt-4 mt-8 border-t border-gray-200">
           <p className="text-center text-gray-500 text-sm">
             © {currentYear} 橘香堂近藤薬局
           </p>
