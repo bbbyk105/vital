@@ -9,11 +9,11 @@ export const homeConfig: HomeConfig = {
 
     {
       title: "コンテンツ",
-      href: "#contents",
+      href: "/#contents",
     },
     {
       title: "施設紹介",
-      href: "#facility",
+      href: "/#facility",
     },
     {
       title: "料金",
@@ -21,7 +21,7 @@ export const homeConfig: HomeConfig = {
     },
     {
       title: "会社概要",
-      href: "#company-section",
+      href: "/#company-section",
     },
     {
       title: "予約状況",

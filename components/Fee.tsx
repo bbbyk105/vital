@@ -55,7 +55,7 @@ const Fee: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-24 bg-gray-50">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-24 bg-gray-50 mt-32">
       <section id="fee" className="max-w-7xl mx-auto">
         <div className="text-center mb-8 md:mb-16">
           <h2 className="font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800">
