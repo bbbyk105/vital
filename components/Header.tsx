@@ -31,12 +31,6 @@ export default function Header({ items }: HeaderProps) {
     };
   }, [isOpen]);
 
-  // Filter function to hide specific items in mobile view
-  const shouldShowInMobile = (item: NavItem) => {
-    const hiddenMobileItems = ["お問い合わせ", "コンテンツ"];
-    return !hiddenMobileItems.includes(item.title);
-  };
-
   return (
     <header
       className={`fixed top-0 left-0 w-full z-[50] transition-all duration-300 
@@ -112,7 +106,7 @@ export default function Header({ items }: HeaderProps) {
       >
         <div className="flex flex-col h-screen pt-20 px-6 pb-8 overflow-y-auto bg-white">
           <nav className="flex flex-col items-center justify-start flex-1 space-y-6">
-            {items?.filter(shouldShowInMobile).map((item, index) => (
+            {items?.map((item, index) => (
               <Link
                 key={index}
                 href={item.href}
