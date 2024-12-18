@@ -6,22 +6,9 @@ export const homeConfig: HomeConfig = {
       title: "ホーム",
       href: "/",
     },
-
-    {
-      title: "コンテンツ",
-      href: "/#contents",
-    },
-    {
-      title: "施設紹介",
-      href: "/#facility",
-    },
     {
       title: "料金",
       href: "/fee",
-    },
-    {
-      title: "会社概要",
-      href: "/#company-section",
     },
     {
       title: "予約状況",
