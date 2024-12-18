@@ -55,7 +55,7 @@ export default function Contact() {
 
   return (
     <main>
-      <div className="max-w-[90%] md:max-w-[65%] mx-auto text-center">
+      <div className="max-w-[90%] md:max-w-[65%] mx-auto text-center mt-32">
         <h1 className="font-extrabold text-3xl md:text-4xl mt-16">
           お問い合わせ
         </h1>

@@ -1,17 +1,13 @@
-"use client";
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import React from "react";
 import Image from "next/image";
 
 const FacilityShowcase = () => {
-  const [activeSection, setActiveSection] = useState(0);
-
   const facilities = [
     {
       id: 1,
       title: "グリーンスペース",
       subtitle: "心と体をリフレッシュする空間",
-      description: "グリーンスペースでは",
+      description: "自然光と緑に囲まれた、心身ともにリフレッシュできる空間",
       imageUrl: "/yoga.jpg",
       features: ["自然光溢れる空間", "ヨガマット完備", "更衣室併設"],
     },
@@ -20,7 +16,7 @@ const FacilityShowcase = () => {
       title: "ワークスペース",
       subtitle: "創造性を刺激する作業環境",
       description:
-        "快適な環境で集中して作業を行えるワークスペースです。自然光が差し込む開放感のある空間は、クリエイティビティを刺激し、効率的な仕事環境を提供します。",
+        "快適な環境で集中して作業を行えるワークスペース。自然光が差し込む開放感のある空間は、クリエイティビティを刺激し、効率的な仕事環境を提供します。",
       imageUrl: "/working.jpg",
       features: ["高速Wi-Fi", "電源完備", "フリードリンク", "個別デスク"],
     },
@@ -43,98 +39,63 @@ const FacilityShowcase = () => {
       title: "多目的スペース",
       subtitle: "誰もが利用できる開放的な空間",
       description:
-        "私たちのスペースは、大人から子供まで、年齢や性別を問わず、どなたでも気軽にご利用いただけます。自然豊かな環境の中で、リラックスしたり、創造的な活動を楽しんだりできます。",
+        "大人から子供まで、年齢や性別を問わず、どなたでも気軽にご利用いただけます。自然豊かな環境の中で、リラックスしたり、創造的な活動を楽しんだりできます。",
       imageUrl: "/kids.jpg",
       features: ["バリアフリー", "託児スペース", "休憩エリア", "防音設備"],
     },
   ];
 
-  const nextSection = () => {
-    setActiveSection((prev) => (prev + 1) % facilities.length);
-  };
-
-  const prevSection = () => {
-    setActiveSection(
-      (prev) => (prev - 1 + facilities.length) % facilities.length
-    );
-  };
-
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16">
-      <h2 className="text-4xl md:text-6xl font-bold text-center mb-2">
-        Facility
-      </h2>
-      <p className="text-center text-gray-600 dark:text-gray-400 mb-12">
-        施設についての詳細情報をご紹介します
-      </p>
+    <div id="facility" className="max-w-7xl mx-auto px-4 py-16">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
+          Our Facilities
+        </h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          多様な目的に応える、洗練された空間デザイン。
+          創造性、リラックス、コラボレーションを支援する環境を提供します。
+        </p>
+      </div>
 
-      <div className="relative">
-        {/* Main Display */}
-        <div className="relative h-[70vh] rounded-3xl overflow-hidden">
-          <Image
-            src={facilities[activeSection].imageUrl}
-            alt={facilities[activeSection].title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 1200px"
-            priority={true} // 事前ロード
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+      <div className="grid md:grid-cols-2 gap-8">
+        {facilities.map((facility) => (
+          <div
+            key={facility.id}
+            className="group overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl"
+          >
+            <div className="relative h-96 w-full overflow-hidden">
+              <Image
+                src={facility.imageUrl}
+                alt={facility.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
 
-          <div className="absolute bottom-0 left-0 right-0 p-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-              {facilities[activeSection].title}
-            </h2>
-            <p className="text-xl text-gray-200 mb-4">
-              {facilities[activeSection].subtitle}
-            </p>
-            <p className="text-gray-300 mb-6 max-w-2xl">
-              {facilities[activeSection].description}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {facilities[activeSection].features.map((feature, index) => (
-                <span
-                  key={index}
-                  className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm"
-                >
-                  {feature}
-                </span>
-              ))}
+            <div className="p-6">
+              <h3 className="text-2xl font-bold mb-2 text-gray-800">
+                {facility.title}
+              </h3>
+              <p className="text-gray-600 mb-4">{facility.subtitle}</p>
+
+              <p className="text-sm text-gray-500 mb-4">
+                {facility.description}
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                {facility.features.map((feature, featureIndex) => (
+                  <span
+                    key={featureIndex}
+                    className="px-4 py-2 bg-gray-100 rounded-full text-gray-700 text-sm"
+                  >
+                    {feature}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Navigation Controls */}
-        <div className="absolute bottom-4 right-4 flex gap-2">
-          <button
-            onClick={prevSection}
-            className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          <button
-            onClick={nextSection}
-            className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition"
-          >
-            <ChevronRight size={24} />
-          </button>
-        </div>
-
-        {/* Section Indicators */}
-        <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2">
-          {facilities.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveSection(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === activeSection
-                  ? "w-8 bg-gray-800 dark:bg-white"
-                  : "bg-gray-300 dark:bg-gray-700"
-              }`}
-            />
-          ))}
-        </div>
+        ))}
       </div>
     </div>
   );
